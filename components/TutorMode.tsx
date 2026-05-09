@@ -1,6 +1,6 @@
 // src/components/TutorMode.tsx
 import { useState, useEffect } from 'react';
-import { TutorDecision, LessonContent, QuizQuestion } from '@/types';
+import { TutorDecision, LessonContent, TopicQuiz } from '@/types';
 import LessonViewer from './LessonViewer';
 import QuizViewer from './QuizViewer';
 
@@ -12,7 +12,7 @@ export default function TutorMode() {
   
   const [decision, setDecision] = useState<TutorDecision | null>(null);
   const [lesson, setLesson] = useState<LessonContent | null>(null);
-  const [quiz, setQuiz] = useState<QuizQuestion | null>(null);
+  const [quiz, setQuiz] = useState<TopicQuiz | null>(null);
 
   const fetchNextTopic = async () => {
     setStep('loading');
