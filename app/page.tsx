@@ -24,7 +24,7 @@ export default function Home() {
   const fetchHistory = async () => {
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-      const res = await fetch(`${API_URL}/tutor/history`); // (Tu ruta exacta aquí)
+      const res = await fetch(`${API_URL}/history`);
       
       if (!res.ok) {
         console.error("El backend devolvió un error:", res.status);
@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   const handleSidebarSelect = (record: HistoryRecord) => {
-    setMode('free'); // Forzamos ir al modo libre
+    setMode('free');
     setSidebarSelection(record as unknown as AnalysisResponse);
   };
 
