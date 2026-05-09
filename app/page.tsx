@@ -23,13 +23,18 @@ export default function Home() {
 
   const fetchHistory = async () => {
     try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-        const res = await fetch(`${API_URL}/tutor/next`);      if (res.ok) {
-        const data = await res.json();
-        setHistory(data || []);
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${API_URL}/tutor/history`); // (Tu ruta exacta aquí)
+      
+      if (!res.ok) {
+        console.error("El backend devolvió un error:", res.status);
+        return;
       }
-    } catch (err) {
-      console.error('Error al recuperar el historial:', err);
+
+      const data = await res.json();
+      setHistory(data);
+    } catch (error) {
+      console.error("Error de conexión:", error);
     }
   };
 
